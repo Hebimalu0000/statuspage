@@ -15,31 +15,42 @@ async function renderStatus() {
 
     const statuses = await response.json();
 
-    if (status.status ==　"success") {
-      var msg = "利用できます" ;
-      var iclass = "fa-check-circle" ;
-    }
-
-    if (status.status ==　"error") {
-      var msg = "利用できません" ;
-      var iclass = "fa-times-circle" ;
-    }
-
-    if (status.status ==　"warning") {
-      var msg = "利用中です" ;
-      var iclass = "fa-exclamation-triangle" ;
-    }
-
-    if (status.status ==　"info") {
-      var msg = "メンテナンス中です" ;
-      var iclass = "fa-exclamation-circle" ;
-    }
-
     statuses.forEach(status => {
+      let msg = '';
+      let iclass = '';
+
+      // ステータスごとのメッセージとアイコンを設定
+      switch (status.status) {
+        case 'success':
+          msg = '利用できます';
+          iclass = 'fa-check-circle';
+          break;
+        case 'error':
+          msg = '利用できません';
+          iclass = 'fa-times-circle';
+          break;
+        case 'warning':
+          msg = '利用中です';
+          iclass = 'fa-exclamation-triangle';
+          break;
+        case 'info':
+          msg = 'メンテナンス中です';
+          iclass = 'fa-exclamation-circle';
+          break;
+        default:
+          msg = '不明なステータス';
+          iclass = 'fa-question-circle';
+          break;
+      }
+
+      // ステータス情報をHTMLに追加
       const div = document.createElement('div');
-      div.innerHtml = `<i class="fas ${iclass}"></i><p><b>${status.name}</b> ${msg}</p>(最終更新: ${status.lastUpdated})`;
-      div.classList.add(`alert-box`);
-      div.classList.add(`alert-box-${status.status}`);
+      div.innerHTML = `
+        <i class="fas ${iclass}"></i>
+        <p><b>${status.name}</b> ${msg}</p>
+        <span>(最終更新: ${status.lastUpdated})</span>
+      `;
+      div.classList.add('alert-box', `alert-box-${status.status}`);
       statusList.appendChild(div);
     });
   } catch (error) {
