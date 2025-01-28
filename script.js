@@ -18,7 +18,7 @@ async function renderStatus() {
     });
   } catch (error) {
     console.error('データの取得に失敗しました:', error);
-    // エラー表示など、適切な処理を追加
+    alart("データの取得に失敗しました", error);
   }
 }
 
