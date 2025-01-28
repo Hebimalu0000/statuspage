@@ -15,11 +15,31 @@ async function renderStatus() {
 
     const statuses = await response.json();
 
+    if (status.status ==　"success") {
+      let msg = "利用できます" ;
+      let iclass = "fa-check-circle" ;
+    }
+
+    if (status.status ==　"error") {
+      let msg = "利用できません" ;
+      let iclass = "fa-times-circle" ;
+    }
+
+    if (status.status ==　"warning") {
+      let msg = "利用中です" ;
+      let iclass = "fa-exclamation-triangle" ;
+    }
+
+    if (status.status ==　"info") {
+      let msg = "メンテナンス中です" ;
+      let iclass = "fa-exclamation-circle" ;
+    }
+
     statuses.forEach(status => {
-      const li = document.createElement('li');
-      li.textContent = `${status.name}: ${status.status} (最終更新: ${status.lastUpdated})`;
-      li.classList.add(status.status);
-      statusList.appendChild(li);
+      const div = document.createElement('div');
+      div.innerHtml = `<i class="fas ${iclass}"></i><p><b>${status.name}</b> ${msg}</p>(最終更新: ${status.lastUpdated})`;
+      div.classList.add(`alert-box alert-box-${status.status}`);
+      statusList.appendChild(div);
     });
   } catch (error) {
     console.error('データの取得に失敗しました:', error);
