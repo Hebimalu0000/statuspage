@@ -1,12 +1,22 @@
 [
   {
-    "name": "稼働",
-    "status": "operational",
+    "name": "機械1",
+    "status": "success",
     "lastUpdated": "2023-11-20 12:00:00"
   },
   {
-    "name": "稼働",
-    "status": "operational",
+    "name": "機械2",
+    "status": "error",
+    "lastUpdated": "2023-11-20 12:00:00"
+  },
+  {
+    "name": "機械3",
+    "status": "warning",
+    "lastUpdated": "2023-11-20 12:00:00"
+  },
+  {
+    "name": "機械4",
+    "status": "info",
     "lastUpdated": "2023-11-20 12:00:00"
   }
 ]
