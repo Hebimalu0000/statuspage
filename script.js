@@ -67,4 +67,7 @@ async function renderStatus() {
 // ページ読み込み時にステータスを表示
 window.onload = function() {
   renderStatus();
+  setTimeout(() => {
+　　 window.location.reload();
+  },60000);
 };
