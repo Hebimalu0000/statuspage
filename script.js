@@ -50,7 +50,7 @@ async function renderStatus() {
         <p><b>${status.name}</b> ${msg}</p>
         <span>(最終更新: ${status.lastUpdated})</span>
       `;
-      div.classList.add('alert-box', `alert-box-${status.status}`);
+      div.classList.add('alert', `alert-box-${status.status}`);
       statusList.appendChild(div);
     });
   } catch (error) {
