@@ -16,23 +16,23 @@ async function renderStatus() {
     const statuses = await response.json();
 
     if (status.status ==　"success") {
-      let msg = "利用できます" ;
-      let iclass = "fa-check-circle" ;
+      var msg = "利用できます" ;
+      var iclass = "fa-check-circle" ;
     }
 
     if (status.status ==　"error") {
-      let msg = "利用できません" ;
-      let iclass = "fa-times-circle" ;
+      var msg = "利用できません" ;
+      var iclass = "fa-times-circle" ;
     }
 
     if (status.status ==　"warning") {
-      let msg = "利用中です" ;
-      let iclass = "fa-exclamation-triangle" ;
+      var msg = "利用中です" ;
+      var iclass = "fa-exclamation-triangle" ;
     }
 
     if (status.status ==　"info") {
-      let msg = "メンテナンス中です" ;
-      let iclass = "fa-exclamation-circle" ;
+      var msg = "メンテナンス中です" ;
+      var iclass = "fa-exclamation-circle" ;
     }
 
     statuses.forEach(status => {
