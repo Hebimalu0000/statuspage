@@ -1,0 +1,11 @@
+.operational {
+  color: green;
+}
+
+.degraded {
+  color: orange;
+}
+
+.outage {
+  color: red;
+}
