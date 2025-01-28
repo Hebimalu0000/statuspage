@@ -1,5 +1,5 @@
 // JSON データの取得先 URL
-const apiUrl = './status.json';
+const apiUrl = './status.json?status';
 
 // HTMLのリスト要素にステータス情報を表示する関数
 async function renderStatus() {
