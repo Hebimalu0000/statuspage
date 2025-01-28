@@ -68,6 +68,6 @@ async function renderStatus() {
 window.onload = function() {
   renderStatus();
   setTimeout(() => {
-　　 window.location.reload();
+　　 renderStatus();
   },60000);
 };
