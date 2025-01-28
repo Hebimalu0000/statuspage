@@ -8,6 +8,11 @@ async function renderStatus() {
 
   try {
     const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(`HTTPエラー: ${response.status}`);
+    }
+
     const statuses = await response.json();
 
     statuses.forEach(status => {
@@ -18,12 +23,16 @@ async function renderStatus() {
     });
   } catch (error) {
     console.error('データの取得に失敗しました:', error);
-    alart("データの取得に失敗しました", error);
+    alert(`データの取得に失敗しました: ${error.message}`);
+    
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'ステータス情報の取得に失敗しました。時間を置いて再度お試しください。';
+    errorMessage.style.color = 'red';
+    statusList.appendChild(errorMessage);
   }
 }
 
 // ページ読み込み時にステータスを表示
-//window.onload = renderStatus;
 window.onload = function() {
   renderStatus();
-}
+};
