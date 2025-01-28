@@ -23,4 +23,7 @@ async function renderStatus() {
 }
 
 // ページ読み込み時にステータスを表示
-window.onload = renderStatus;
+//window.onload = renderStatus;
+window.onload = function() {
+  renderStatus();
+}
