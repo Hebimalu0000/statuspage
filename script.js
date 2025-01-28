@@ -38,7 +38,8 @@ async function renderStatus() {
     statuses.forEach(status => {
       const div = document.createElement('div');
       div.innerHtml = `<i class="fas ${iclass}"></i><p><b>${status.name}</b> ${msg}</p>(最終更新: ${status.lastUpdated})`;
-      div.classList.add(`alert-box alert-box-${status.status}`);
+      div.classList.add(`alert-box`);
+      div.classList.add(`alert-box-${status.status}`);
       statusList.appendChild(div);
     });
   } catch (error) {
